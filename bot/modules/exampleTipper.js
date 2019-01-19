@@ -17,15 +17,15 @@ const bitcoin = require('bitcoin');
 let Regex = require('regex'),
   config = require('config'),
   spamchannels = config.get('moderation').botspamchannels;
-let walletConfig = config.get('ltc').config;
-let paytxfee = config.get('ltc').paytxfee;
-const ltc = new bitcoin.Client(walletConfig);
+let walletConfig = config.get('zer').config;
+let paytxfee = config.get('zer').paytxfee;
+const zer = new bitcoin.Client(walletConfig);
 
-exports.commands = ['tipltc'];
-exports.tipltc = {
+exports.commands = ['tipzer'];
+exports.tipzer = {
   usage: '<subcommand>',
   description:
-    '__**Litecoin (LTC) Tipper**__\nTransaction Fees: **' + paytxfee + '**\n    **!tipltc** : Displays This Message\n    **!tipltc balance** : get your balance\n    **!tipltc deposit** : get address for your deposits\n    **!tipltc withdraw <ADDRESS> <AMOUNT>** : withdraw coins to specified address\n    **!tipltc <@user> <amount>** :mention a user with @ and then the amount to tip them\n    **!tipltc private <user> <amount>** : put private before Mentioning a user to tip them privately.\n\n    has a default txfee of ' + paytxfee,
+    '__**Zero Currency (ZER) Tipper**__\nTransaction Fees: **' + paytxfee + '**\n    **!tipzer** : Displays This Message\n    **!tipzer balance** : get your balance\n    **!tipzer deposit** : get address for your deposits\n    **!tipzer withdraw <ADDRESS> <AMOUNT>** : withdraw coins to specified address\n    **!tipzer <@user> <amount>** :mention a user with @ and then the amount to tip them\n    **!tipzer private <user> <amount>** : put private before Mentioning a user to tip them privately.\n\n    has a default txfee of ' + paytxfee,
   process: async function(bot, msg, suffix) {
     let tipper = msg.author.id.replace('!', ''),
       words = msg.content
@@ -36,7 +36,7 @@ exports.tipltc = {
         }),
       subcommand = words.length >= 2 ? words[1] : 'help',
       helpmsg =
-        '__**Litecoin (LTC) Tipper**__\nTransaction Fees: **' + paytxfee + '**\n    **!tipltc** : Displays This Message\n    **!tipltc balance** : get your balance\n    **!tipltc deposit** : get address for your deposits\n    **!tipltc withdraw <ADDRESS> <AMOUNT>** : withdraw coins to specified address\n    **!tipltc <@user> <amount>** :mention a user with @ and then the amount to tip them\n    **!tipltc private <user> <amount>** : put private before Mentioning a user to tip them privately.\n\n    **<> : Replace with appropriate value.**',
+        '__**Zero Currency (ZER) Tipper**__\nTransaction Fees: **' + paytxfee + '**\n    **!tipzer** : Displays This Message\n    **!tipzer balance** : get your balance\n    **!tipzer deposit** : get address for your deposits\n    **!tipzer withdraw <ADDRESS> <AMOUNT>** : withdraw coins to specified address\n    **!tipzer <@user> <amount>** :mention a user with @ and then the amount to tip them\n    **!tipzer private <user> <amount>** : put private before Mentioning a user to tip them privately.\n\n    **<> : Replace with appropriate value.**',
       channelwarning = 'Please use <#bot-spam> or DMs to talk to bots.';
     switch (subcommand) {
       case 'help':
@@ -72,10 +72,10 @@ function doHelp(message, helpmsg) {
 function doBalance(message, tipper) {
   ltc.getBalance(tipper, 1, function(err, balance) {
     if (err) {
-      message.reply('Error getting Litecoin (LTC) balance.').then(message => message.delete(10000));
+      message.reply('Error getting Zero (ZER) balance.').then(message => message.delete(10000));
     } else {
     message.channel.send({ embed: {
-    description: '**:bank::money_with_wings::moneybag:Litecoin (LTC) Balance!:moneybag::money_with_wings::bank:**',
+    description: '**:bank::money_with_wings::moneybag:Zero (ZER) Balance!:moneybag::money_with_wings::bank:**',
     color: 1363892,
     fields: [
       {
@@ -97,10 +97,10 @@ function doBalance(message, tipper) {
 function doDeposit(message, tipper) {
   getAddress(tipper, function(err, address) {
     if (err) {
-      message.reply('Error getting your Litecoin (LTC) deposit address.').then(message => message.delete(10000));
+      message.reply('Error getting your Zero (ZER) deposit address.').then(message => message.delete(10000));
     } else {
     message.channel.send({ embed: {
-    description: '**:bank::card_index::moneybag:Litecoin (LTC) Address!:moneybag::card_index::bank:**',
+    description: '**:bank::card_index::moneybag:Zero (ZER) Address!:moneybag::card_index::bank:**',
     color: 1363892,
     fields: [
       {
@@ -129,16 +129,16 @@ function doWithdraw(message, tipper, words, helpmsg) {
     amount = getValidatedAmount(words[3]);
 
   if (amount === null) {
-    message.reply("I don't know how to withdraw that much Litecoin (LTC)...").then(message => message.delete(10000));
+    message.reply("I don't know how to withdraw that much Zero (ZER)...").then(message => message.delete(10000));
     return;
   }
 
   ltc.getBalance(tipper, 1, function(err, balance) {
     if (err) {
-      message.reply('Error getting Litecoin (LTC) balance.').then(message => message.delete(10000));
+      message.reply('Error getting Zero (ZER) balance.').then(message => message.delete(10000));
     } else {
       if (Number(amount) + Number(paytxfee) > Number(balance)) {
-        message.channel.send('Please leave atleast ' + paytxfee + ' Litecoin (LTC) for transaction fees!');
+        message.channel.send('Please leave atleast ' + paytxfee + ' Zero (ZER) for transaction fees!');
         return;
       }
       ltc.sendFrom(tipper, address, Number(amount), function(err, txId) {
@@ -146,7 +146,7 @@ function doWithdraw(message, tipper, words, helpmsg) {
           message.reply(err.message).then(message => message.delete(10000));
         } else {
         message.channel.send({embed:{
-        description: '**:outbox_tray::money_with_wings::moneybag:Litecoin (LTC) Transaction Completed!:moneybag::money_with_wings::outbox_tray:**',
+        description: '**:outbox_tray::money_with_wings::moneybag:Zero (ZER) Transaction Completed!:moneybag::money_with_wings::outbox_tray:**',
         color: 1363892,
         fields: [
           {
@@ -237,7 +237,7 @@ function sendLTC(bot, message, tipper, recipient, amount, privacyFlag) {
                 if (privacyFlag) {
                   let userProfile = message.guild.members.find('id', recipient);
                   userProfile.user.send({ embed: {
-                  description: '**:money_with_wings::moneybag:Litecoin (LTC) Transaction Completed!:moneybag::money_with_wings:**',
+                  description: '**:money_with_wings::moneybag:Zero (ZER) Transaction Completed!:moneybag::money_with_wings:**',
                   color: 1363892,
                   fields: [
                     {
@@ -268,7 +268,7 @@ function sendLTC(bot, message, tipper, recipient, amount, privacyFlag) {
                   ]
                 } });
                 message.author.send({ embed: {
-                description: '**:money_with_wings::moneybag:Litecoin (LTC) Transaction Completed!:moneybag::money_with_wings:**',
+                description: '**:money_with_wings::moneybag:Zero (ZER) Transaction Completed!:moneybag::money_with_wings:**',
                 color: 1363892,
                 fields: [
                   {
@@ -306,7 +306,7 @@ function sendLTC(bot, message, tipper, recipient, amount, privacyFlag) {
                   }
                 } else {
                   message.channel.send({ embed: {
-                  description: '**:money_with_wings::moneybag:Litecoin (LTC) Transaction Completed!:moneybag::money_with_wings:**',
+                  description: '**:money_with_wings::moneybag:Zero (ZER) Transaction Completed!:moneybag::money_with_wings:**',
                   color: 1363892,
                   fields: [
                     {
