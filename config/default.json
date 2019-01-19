@@ -1,16 +1,17 @@
 {
   // Bot configuration
   "bot": {
-      "token":"Bot-Token",
+      "token":"NTM2MTc4MDc5OTA3OTcxMDg1.DyTWqA.DD5L3yAc7l7lAjLnlKGiETpJ6oc",
       "prefix": "!",
       "debug": true
-"zer": {
-  "paytxfee": .00
-  "config":
-    "port": 23801,
-    "user": "",
-    "pass": ""
-  }
+ },
+  "zer": {
+    "paytxfee": .0001,
+    "config": {
+      "port": 23801,
+      "user": "",
+      "pass": ""
+    }
 },
   },
   "moderation":{
@@ -20,8 +21,8 @@
   // Bot Devs!
   "botDev": "Bot Developer",
   // Channel to log the bots moderation..
-  "logchannel": "429853685179351050",
+  "logchannel": "473836223933448192",
   //channel that the tip message will reply in if Multi or Role tip is used.
-  "botspamchannels": ["429134627823812612", "429852470886268929"]
+  "botspamchannels": ["473904185113444361", "473904185113444361"]
   }
 }
