@@ -19,9 +19,9 @@ exports.tiphelp = {
       '  **' + prefix + 'tip<CoinSymbol> private <user> <amount>** : put private before Mentioning a user to tip them privately\n' +
       '**<> : Replace carrot <> symbole with appropriate value.**\n' +
       '__**Examples**__\n' +
-      '  **' + prefix + 'tipzer @MSFTserver 10**\n' +
+      '  **' + prefix + 'tipzer @r3dey3 10**\n' +
       '  **' + prefix + 'tipzer withdraw ZERaddressHERE 10**\n' +
-      '  **' + prefix + 'tipzer private @MSFTserver 10**\n' +
+      '  **' + prefix + 'tipzer private @r3dey3 10**\n' +
       '  **' + prefix + 'tipzer balance**\n' +
       '  **' + prefix + 'tipzer deposit**\n'
     );
