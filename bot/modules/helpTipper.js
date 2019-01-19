@@ -9,7 +9,7 @@ exports.tiphelp = {
   process: function(bot, message) {
     message.author.send(
       '__**:bank: Coins :bank:**__\n' +
-         **Zero (ZER) Tipper**\n    Transaction Fees: **' + ravenFee + '**\n' +
+         **Zero (ZER) Tipper**\n    Transaction Fees: **' + zeroFee + '**\n' +
         '__**Commands**__\n' +
       '  **' + prefix + 'tip<CoinSymbol>** : Displays This Message\n' +
       '  **' + prefix + 'tip<CoinSymbol> balance** : get your balance\n' +
