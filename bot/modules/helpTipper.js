@@ -18,17 +18,8 @@ exports.tiphelp = {
   process: function(bot, message) {
     message.author.send(
       '__**:bank: Coins :bank:**__\n' +
-      '  **Ravencoin (RVN) Tipper**\n    Transaction Fees: **' + ravenFee + '**\n' +
-      '  **Dogecoin (DOGE) Tipper**\n    Transaction Fees: **' + dogeFee + '**\n' +
-      '  **LBRY Credit (LBC) Tipper**\n    Transaction Fees: **' + lbryFee + '**\n' +
-      '  **Phase (PHASE) Tipper**\n    Transaction Fees: **' + phaseFee + '**\n' +
-      '  **Uniform Fiscal Object (UFO) Tipper**\n    Transaction Fees: **' + ufoFee + '**\n' +
-      '  **Phoenixcoin (PXC) Tipper**\n    Transaction Fees: **' + phoenixFee + '**\n' +
-      '  **Feathercoin (FTC) Tipper**\n    Transaction Fees: **' + featherFee + '**\n' +
-      '  **Vertical (VTL) Tipper**\n    Transaction Fees: **' + verticalFee + '**\n' +
-      '  **Neblio (NEBL) Tipper**\n    Transaction Fees: **' + neblioFee + '**\n' +
-      '  **Xuez (XUEZ) Tipper**\n    Transaction Fees: **' + xuezFee + '**\n' +
-      '__**Commands**__\n' +
+         **Zero (ZER) Tipper**\n    Transaction Fees: **' + ravenFee + '**\n' +
+        '__**Commands**__\n' +
       '  **' + prefix + 'tip<CoinSymbol>** : Displays This Message\n' +
       '  **' + prefix + 'tip<CoinSymbol> balance** : get your balance\n' +
       '  **' + prefix + 'tip<CoinSymbol> deposit** : get address for your deposits\n' +
