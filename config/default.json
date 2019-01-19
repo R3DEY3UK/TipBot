@@ -1,7 +1,7 @@
 {
   // Bot configuration
   "bot": {
-      "token":"NTM2MTc4MDc5OTA3OTcxMDg1.DyTWqA.DD5L3yAc7l7lAjLnlKGiETpJ6oc",
+      "token":"Bot-Token-here",
       "prefix": "!",
       "debug": true
  },
