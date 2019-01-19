@@ -1,15 +1,6 @@
 'use strict';
 let config = require('config');
-let ravenFee = config.get('rvn').paytxfee;
-let dogeFee = config.get('doge').paytxfee;
-let lbryFee = config.get('lbc').paytxfee;
-let phaseFee = config.get('phase').paytxfee;
-let ufoFee = config.get('ufo').paytxfee;
-let phoenixFee = config.get('pxc').paytxfee;
-let featherFee = config.get('ftc').paytxfee;
-let verticalFee = config.get('vtl').paytxfee;
-let neblioFee = config.get('nebl').paytxfee;
-let xuezFee = config.get('xuez').paytxfee;
+let zeroFee = config.get('zer').paytxfee;
 let prefix = config.get('bot').prefix;
 exports.commands = ['tiphelp'];
 exports.tiphelp = {
