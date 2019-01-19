@@ -19,11 +19,11 @@ exports.tiphelp = {
       '  **' + prefix + 'tip<CoinSymbol> private <user> <amount>** : put private before Mentioning a user to tip them privately\n' +
       '**<> : Replace carrot <> symbole with appropriate value.**\n' +
       '__**Examples**__\n' +
-      '  **' + prefix + 'tiprvn @MSFTserver 10**\n' +
-      '  **' + prefix + 'tipdoge withdraw DOGEaddressHERE 10**\n' +
-      '  **' + prefix + 'tipftc private @MSFTserver 10**\n' +
-      '  **' + prefix + 'tiplbc balance**\n' +
-      '  **' + prefix + 'tippxc deposit**\n'
+      '  **' + prefix + 'tipzer @MSFTserver 10**\n' +
+      '  **' + prefix + 'tipzer withdraw DOGEaddressHERE 10**\n' +
+      '  **' + prefix + 'tipzer private @MSFTserver 10**\n' +
+      '  **' + prefix + 'tipzer balance**\n' +
+      '  **' + prefix + 'tipzer deposit**\n'
     );
   }
 };
